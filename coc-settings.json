@@ -1,0 +1,15 @@
+{
+  "python.jediEnabled": false,
+  "python.formatting.provider":"autopep8",
+  "coc.preferences.formatOnSaveFiletypes": ["python", "javascript", "go" ],
+  "python.autoComplete.showAdvancedMembers": false,
+  "prettier.eslintIntegration": true, 
+  "prettier.disableLanguages": [
+  "vue",
+  "docker"
+  ],
+  "prettier.printWidth": 400,
+  "clangd.path": "/home/crash/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
+  "clangd.arguments": ["--log=verbose", "--background-index", "--clang-tidy"],
+  "clangd.enabled": true
+}
