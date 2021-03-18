@@ -13,9 +13,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " scrooloose/nerdtree fs browsing tree
 Plug 'scrooloose/nerdtree'
 
-" noha/vim256-color colorscheme
-Plug 'noah/vim256-color'
-
 " arcticicestudio/nord-vim
 Plug 'arcticicestudio/nord-vim'
 
