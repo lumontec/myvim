@@ -13,6 +13,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " scrooloose/nerdtree fs browsing tree
 Plug 'scrooloose/nerdtree'
 
+" noha/vim256-color colorscheme
+Plug 'noah/vim256-color'
+
 " arcticicestudio/nord-vim
 Plug 'arcticicestudio/nord-vim'
 
@@ -59,6 +62,7 @@ source $VIMRUNTIME/vimrc_example.vim
 " disable filetype indent
 filetype indent off
 
+set hidden
 set backupcopy=yes
 set nobackup
 "set nowritebackup
@@ -132,4 +136,18 @@ function! MyFoldText()
     return txt
 endfunction
 set foldtext=MyFoldText()
+
+"
+" yanks file line 
+function! YankFileLine()
+    " map abs path
+    " let file = expand("%:p")
+    " map curr file 
+    let file = expand("%")
+    let line = line(".")
+    let fileline = file . ':' . line
+    let @+ = fileline
+    let @* = fileline
+endfunction
+noremap <F5> :call YankFileLine()<CR>
 
