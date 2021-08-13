@@ -1,5 +1,5 @@
 
-" -- PLUGINS
+" -- VIM PLUGINS
 "
 call plug#begin('~/.vim/plugged')
 
@@ -30,20 +30,25 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
+" -- COC EXTENSIONS
+"
+let g:coc_global_extensions = ['coc-pyright', 'coc-yaml', 'coc-go']
+
 
 " -- CONFIGURATIONS 
 "
-"-- show side numbers
+" show side numbers
 set number
 
-"-- set folding 
-set foldmethod=syntax "syntax highlighting items specify folds
+" set folding 
+"set foldmethod=syntax "syntax highlighting items specify folds
+set foldmethod=indent "syntax highlighting items specify folds
 set foldlevelstart=99 "start file with all folds opened
 
-"-- save content to system clipboard
+" save content to system clipboard
 set clipboard=unnamedplus
 
-"-- setup undo 
+" setup undo 
 set undodir=~/.vim/undodir
 set undofile
 
@@ -62,8 +67,11 @@ set backupcopy=yes
 set nobackup
 "set nowritebackup
 
-"c, cpp autoformat
+" c, cpp autoformat
 autocmd FileType c,cpp setlocal equalprg=clang-format
+
+" disable cocnvim startup warning
+let g:coc_disable_startup_warning = 1
 
 
 " -- REMAPS
@@ -73,6 +81,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Coc remap autocompletion
+inoremap <silent><expr> <c-@> coc#refresh()
 
 " Remap arrow keys to resize window
 nnoremap <Up>    :resize -2<CR>
@@ -140,6 +151,5 @@ function! YankFileLine()
     let @* = fileline
 endfunction
 noremap <F5> :call YankFileLine()<CR>
-
 
 
